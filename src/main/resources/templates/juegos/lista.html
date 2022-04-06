@@ -1,10 +1,10 @@
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <link rel="icon" th:href="@{/img/icon.png}" type="image/x-icon" />
-    <title>CRUD Distribuidoras</title>
+    <title>Lista de Juegos</title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/css/fontawesome-all.min.css}">
 </head>
@@ -21,14 +21,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbar-app">
-                <!--<ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#/user/signIn">Ingresar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#/user/signUp">Registrarse</a>
-                    </li>
-                </ul>-->
+
                 <ul class="navbar-nav">
                     <li class="nav-item active">
                         <a class="nav-link" th:href="@{/distribuidoras/lista}">Distribuidoras</a>
@@ -62,13 +55,14 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="juegos,i : ${listaJuegos}">
+                    <tr>
+                    <tr th:each="Juego,i : ${lista}" >
                         <td th:text="${i.index + 1}"></td>
-                        <td th:text="${juegos.nombre}"></td>
-                        <td th:text="${juegos.descripcion}"></td>
-                        <td th:text="${juegos.precio}"></td>
-                        <td><a class="btn btn-primary" th:href="@{'/juegos/editar?id=' + ${juegos.idjuego}}">Editar</a></td>
-                        <td><a class="btn btn-danger" th:href="@{'/juegos/borrar?id=' + ${juegos.idjuego}}">Borrar</a></td>
+                        <td th:text="${Juego.nombre}"></td>
+                        <td th:text="${Juego.descripcion}"></td>
+                        <td th:text="${Juego.precio}"></td>
+                        <td><a class="btn btn-primary" th:href="@{'/juegos/editar?id=' + ${Juego.id}}">Editar</a></td>
+                        <td><a class="btn btn-danger" th:href="@{'/juegos/borrar?id=' + ${Juego.id}}">Borrar</a></td>
                     </tr>
                     </tbody>
                 </table>
@@ -79,7 +73,7 @@
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid">
                 <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">Colocar # Grupo - PUCP @ 2022</div>
+                    <div class="text-muted">Colocar # Grupo - PUCP @ 2021</div>
                 </div>
             </div>
         </footer>
