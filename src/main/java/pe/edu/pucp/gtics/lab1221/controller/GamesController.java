@@ -29,8 +29,8 @@ public class GamesController {
     @GetMapping("/lista")
     public String listaJuegos (Model model){
         List<Games> listita = juegosRepository.findAll(Sort.by("precio"));
-            model.addAttribute("lista",listita);
-            return "juegos/lista";
+        model.addAttribute("lista",listita);
+        return "juegos/lista";
     }
 
     @GetMapping("editar")
