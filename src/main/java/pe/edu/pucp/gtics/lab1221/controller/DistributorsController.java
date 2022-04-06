@@ -21,6 +21,10 @@ public class DistributorsController {
     @Autowired
     DistributorsRepository distribuidorasRepository;
 
+    @GetMapping("")
+    public String homeDistribuidoras(){
+        return "redirect:/distribuidoras/lista";
+    }
 
     @GetMapping("/lista")
     public String listaDistribuidoras(Model model){
