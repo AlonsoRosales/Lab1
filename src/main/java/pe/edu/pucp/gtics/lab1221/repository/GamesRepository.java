@@ -1,4 +1,4 @@
 package pe.edu.pucp.gtics.lab1221.repository;
 
-public interface GamesRepository {
+public interface GamesRepository extends JpaRepository<Games,Integer>{
 }
