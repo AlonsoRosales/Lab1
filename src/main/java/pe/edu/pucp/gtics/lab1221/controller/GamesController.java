@@ -26,6 +26,12 @@ public class GamesController {
     @Autowired
     PlatformsRepository plataformasRepository;
 
+    @GetMapping("")
+    public String homeJuegos(){
+        return "redirect:/juegos/lista";
+    }
+
+
     @GetMapping("/lista")
     public String listaJuegos (Model model){
         List<Games> listita = juegosRepository.findAll(Sort.by("precio"));
