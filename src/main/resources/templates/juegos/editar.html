@@ -47,17 +47,31 @@
         <div class="page-header text-center">
             <h2>Editar Juego</h2>
         </div>
-        <div class="container-fluid">
-                <form method="POST">
-                    <!-- Completar -->
-                    <!-- Completar -->
-                    <!-- Completar -->
-                    <!-- Completar -->
-
-                    <a  class="btn btn-danger">Cancelar</a>
+            <div class="container-fluid">
+                <form method="POST" th:action="@{/juegos/guardar}" th:object="${juegos}">
+                    <input type="hidden" th:field="*{idjuego}" />
+                    <div class="mb-3">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-control" th:field="*{nombre}">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Descripción</label>
+                        <input type="text" class="form-control" th:field="*{descripcion}">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Plataforma</label>
+                        <select  th:field="*{idplataforma}">
+                            <option th:each="plataformas : ${listaPlataformas}" th:value="${plataformas.idplataforma}" th:text="${plataformas.nombre}"></option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Precio</label>
+                        <input type="text" class="form-control" th:field="*{precio}">
+                    </div>
+                    <a th:href="@{/juegos/lista}" class="btn btn-danger">Cancelar</a>
                     <button type="submit" class="btn btn-primary">Guardar</button>
                 </form>
-        </div>
+            </div>
         </main>
     </div>
             <!-- /Contenido -->

@@ -62,13 +62,13 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <!-- Completar -->
-                        <!-- Completar -->
-                        <!-- Completar -->
-                        <!-- Completar -->
-                        <td><a class="btn btn-primary" href="/distribuidoras/editar?id=4">Editar</a></td>
-                        <td><a class="btn btn-danger" href="/distribuidoras/borrar?id=4">Borrar</a></td>
+                    <tr th:each="juegos,i : ${listaJuegos}">
+                        <td th:text="${i.index + 1}"></td>
+                        <td th:text="${juegos.nombre}"></td>
+                        <td th:text="${juegos.descripcion}"></td>
+                        <td th:text="${juegos.precio}"></td>
+                        <td><a class="btn btn-primary" th:href="@{'/juegos/editar?id=' + ${juegos.idjuego}}">Editar</a></td>
+                        <td><a class="btn btn-danger" th:href="@{'/juegos/borrar?id=' + ${juegos.idjuego}}">Borrar</a></td>
                     </tr>
                     </tbody>
                 </table>
