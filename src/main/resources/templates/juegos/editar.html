@@ -41,7 +41,7 @@
                 <h2>Editar Juego</h2>
             </div>
             <div class="container-fluid">
-                <form method="post" th:action="@{'/juegos/guardar'}" class="col-4" th:object="${juego}">
+                <form method="post" th:action="@{'/juegos/guardar'}" class="col-12" th:object="${juego}">
                     <input type="hidden" th:field="*{id}" />
                     <div class="mb-3">
                         <label class="form-label">Nombre</label>
