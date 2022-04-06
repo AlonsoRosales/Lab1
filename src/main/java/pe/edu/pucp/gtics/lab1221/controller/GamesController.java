@@ -26,6 +26,12 @@ public class GamesController {
     @Autowired
     PlatformsRepository plataformasRepository;
 
+    @GetMapping("")
+    public String homeJuegos(){
+        return "redirect:/juegos/lista";
+    }
+
+
     @GetMapping("/lista")
     public String listaJuegos (Model model){
         List<Games> listita = juegosRepository.findAll(Sort.by("precio"));
@@ -33,7 +39,7 @@ public class GamesController {
         return "juegos/lista";
     }
 
-    @GetMapping("editar")
+    @GetMapping("/editar")
     public String editarJuegos(@RequestParam("id") String id, Model model){
         Optional<Games> juegito = juegosRepository.findById(Integer.parseInt(id));
         if(juegito.isPresent()){
@@ -62,13 +68,13 @@ public class GamesController {
 
     }
 
-    @PostMapping("guardar")
+    @PostMapping("/guardar")
     public String guardarJuegos(Games juego){
-        System.out.println(juego.getId());
+        /*System.out.println(juego.getId());
         System.out.println(juego.getDescripcion());
         System.out.println(juego.getNombre());
         System.out.println(juego.getPrecio());
-        System.out.println(juego.getIdplataforma());
+        System.out.println(juego.getIdplataforma());*/
         juegosRepository.save(juego);
         return "redirect:/juegos/lista";
     }
