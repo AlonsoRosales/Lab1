@@ -1,0 +1,66 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title>Lista de Alumnos</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/fontawesome-all.min.css}">
+</head>
+<body>
+<div class='container'>
+
+    <div id="content">
+        <main>
+            <!-- Contenido -->
+            <div class="page-header text-center">
+                <h1>Lista de Alumnos</h1>
+                <div class="alert alert-success" th:text="${msg}" th:if="${msg != null}"></div>
+                <div class="alert alert-warning" th:text="${msg1}" th:if="${msg1 != null}"></div>
+                <div class="alert alert-danger" th:text="${msg2}" th:if="${msg2 != null}"></div>
+            </div>
+            <div class="container-fluid">
+
+                <a class="btn btn-primary mt-4 mb-4" th:href="@{/nuevo}">Agregar Alumno</a>
+
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Edad</th>
+                        <th>Codigo PUCP</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                    <tr th:each="Alumno,i : ${lista}" >
+                        <td th:text="${i.index + 1}"></td>
+                        <td th:text="${Alumno.nombre}"></td>
+                        <td th:text="${Alumno.apellido}"></td>
+                        <td th:text="${Alumno.edad}"></td>
+                        <td th:text="${Alumno.codigoPucp}"></td>
+                        <td><a class="btn btn-danger" th:href="@{'/borrar?codigo=' + ${Alumno.codigoPucp}}">Borrar</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <!-- /Contenido -->
+        </main>
+        <footer class="py-4 bg-light mt-auto">
+            <div class="container-fluid">
+                <div class="d-flex align-items-center justify-content-between small">
+                    <div class="text-muted">Grupo 6 SDN - PUCP @ 2022</div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+</html>

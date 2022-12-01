@@ -1,9 +1,9 @@
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <title>Editar Juego</title>
+    <title>Editar Distribuidora</title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/css/fontawesome-all.min.css}">
 </head>
@@ -13,7 +13,7 @@
 
     <div>
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-            <a class="navbar-brand" th:href="@{/juegos}">
+            <a class="navbar-brand" th:href="@{/templates/alumnos}">
                 <img th:src="@{/img/icon.png}" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
                 GameShop3
             </a>
@@ -24,7 +24,7 @@
 
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" th:href="@{/distribuidoras/lista}">Distribuidoras</a>
+                        <a class="nav-link" th:href="@{/templates/alumnos/lista}">Distribuidoras</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" th:href="@{/juegos/lista}"> Juegos</a>
@@ -38,34 +38,25 @@
         <main>
             <!-- Contenido -->
             <div class="page-header text-center">
-                <h2>Editar Juego</h2>
+                <h2>Editar Distribuidora</h2>
             </div>
             <div class="container-fluid">
-                <form method="post" th:action="@{'/juegos/guardar'}" class="col-12" th:object="${juego}">
+                <form method="post" th:action="@{'/distribuidoras/guardar'}" class="col-12" th:object="${distribuidora}">
                     <input type="hidden" th:field="*{id}" />
-                    <div class="mb-3" >
+                    <div class="mb-3">
                         <label class="form-label">Nombre</label>
                         <input type="text" class="form-control" th:field="*{nombre}">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Descripcion</label>
-                        <input type="text" class="form-control" th:field="*{descripcion}">
+                        <label class="form-label">Fundacion</label>
+                        <input type="text" class="form-control" th:field="*{fundacion}">
                     </div>
                     <div class="mb-3">
-                        <label  class="form-label">Plataforma</label>
-                        <br>
-                        <select name="idplataforma" class="col-12" style="display: block;width: 100%;height: calc(1.5em + 0.75rem + 2px);padding: 0.375rem 0.75rem;font-size: 1rem;font-weight: 400;line-height: 1.5;color: #495057;background-color: #fff; background-clip: padding-box;border: 1px solid #ced4da;border-radius: 0.25rem;transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;">
-                            <option th:each="plataformas : ${listaPlataformas}"
-                                    th:value="${plataformas.id}"
-                                    th:text="${plataformas.nombre}"></option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Precio</label>
-                        <input type="text" class="form-control" th:field="*{precio}">
+                        <label class="form-label">Sede</label>
+                        <input type="text" class="form-control" th:field="*{sede}">
                     </div>
 
-                    <a th:href="@{'/juegos/lista'}" class="btn btn-danger">Cancelar</a>
+                    <a th:href="@{'/distribuidoras/lista'}" class="btn btn-danger">Cancelar</a>
                     <button type="submit" class="btn btn-primary">Guardar</button>
                 </form>
             </div>

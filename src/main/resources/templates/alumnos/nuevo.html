@@ -1,0 +1,57 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title>Nuevo Alumno</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/fontawesome-all.min.css}">
+</head>
+<body>
+
+<div class='container'>
+
+    <div id="content">
+        <main>
+            <!-- Contenido -->
+            <div class="page-header text-center">
+                <h2>Nuevo Alumno</h2>
+            </div>
+            <div class="container-fluid">
+                <form method="POST" th:action="@{'/guardar'}" class="col-12">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input  type="text" class="form-control" id="nombre" name="nombre">
+                    </div>
+                    <div class="mb-3">
+                        <label for="apellido" class="form-label">Apellido</label>
+                        <input name="apellido" type="text" class="form-control" id="apellido">
+                    </div>
+                    <div class="mb-3">
+                        <label for="edad" class="form-label">Edad</label>
+                        <input name="edad" type="text" class="form-control" id="edad">
+                    </div>
+                    <div class="mb-3">
+                        <label for="codigoPucp" class="form-label">Codigo PUCP</label>
+                        <input name="codigoPucp" type="text" class="form-control" id="codigoPucp">
+                    </div>
+                    <a th:href="@{'/lista'}" class="btn btn-danger">Cancelar</a>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </form>
+            </div>
+        </main>
+    </div>
+    <!-- /Contenido -->
+    <footer class="py-4 bg-light mt-auto">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center justify-content-between small">
+                <div class="text-muted">Grupo 6 SDN - PUCP @ 2022</div>
+            </div>
+        </div>
+    </footer>
+</div>
+<script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+</html>
